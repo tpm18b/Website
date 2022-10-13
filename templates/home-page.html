@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+        <title> Hacker News </title>  
+        <style>
+            Body{
+                font-family: Calibri, Helvetica, sans-serif;
+                background-color: darksalmon;
+            }
+            .navbar {
+                background-color: teal;
+            }
+            .navbar a{
+                float: left;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            .login{
+                overflow: hidden;
+                background-color: teal;
+            }
+            .login a{
+                float: right;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            .navbar a:hover, .login a:hover{
+                color: darkgray;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: auto;
+                gap: 10px;
+                background-color: teal;
+                padding: 10px;
+            }
+            .grid-container > div {
+                
+                background-color: #ABD7EB;
+                height: 50px;
+                text-align: left;
+                font-size: 30px;
+            }
+            button{
+                background-color: teal;   
+                width: 10px; 
+                height: 10px; 
+                color: white;   
+                padding: 15px;   
+                margin: 10px 0px;    
+                cursor: pointer;   
+            }
+            table, th, td {
+                width: 97%;
+                border: 1px solid teal;
+            }
+            th, td {
+                background-color: #96D4D4;
+            }
+            a {   
+                color: black;   
+                text-decoration: none;
+                background-color: transparent;
+            }
+            a:active {
+                color: black;
+
+            }
+            .upvote { width: 0; height: 0;
+                border-color: black;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-bottom: 8px solid black;
+            } 
+            .downvote {
+                width: 0;
+                height: 0;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid black;
+                margin-left: -1px;
+            } 
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="http://127.0.0.1:5000/">News Feed</a>
+            <div class="login">
+                <a href="http://127.0.0.1:5000/login/">Login</a>
+                <a href="http://127.0.0.1:5000/logout/">Logout</a>
+                <a href="">Profile</a>
+            </div>
+        </div>
+        <center> <h1>Hacker News</h1> </center> 
+    </p>
+        <div class="grid-container">
+            <ul>
+                <table>
+                    {% for article in sorted_dict %}
+                        <tr>
+                            <td>
+                                <b>1. </b>
+                                <a href= "{{article['Discussion link']}}">{{article['Title']}}</a>
+                                <br><small>{{article['likes']}} points by | {{article['comments']}} comments</small></br>
+                                <!-- <div class="upvote">
+                                </div><br/>
+                                <div class="downvote"></div> -->
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </ul>
+        </div>
+    </body>
+</html>
